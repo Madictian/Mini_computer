@@ -7,6 +7,7 @@
  * Description of program
  ********************************************/
 
+// This makes the program able to pull the methods and other stuff it need, when it needs it.
 import java.util.*;
 
 public class RoShamBo {
