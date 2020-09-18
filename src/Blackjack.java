@@ -18,7 +18,7 @@ public class Blackjack {
         int dc = 0;
         int dd = 0;
         int de = 0;
-
+// Her defineres alle korts værdier i op til 5 korttræk for både spiller og dealer.
         if (da >= 10) {
             da = 10;
         }
@@ -211,7 +211,8 @@ public class Blackjack {
                     Boolean counter = false;
                     while (counter == false ) {
                         if (player_hand > 21){
-                            System.out.println("player is bust! House wins!");
+                            System.out.println("\nplayer is bust! House wins!");
+                            break;
                         }
                         if (player_hand > dealer_hand) {
                             dc = rand.nextInt((13 - 1) + 1) + 1;
@@ -229,10 +230,10 @@ public class Blackjack {
                                 dealer_hand = dealer_hand - 10;
                                 da = 1;
                             }
-                            System.out.println("\nyour hand is now: " + player_hand + "\nHand of the house: " + dealer_hand);
+                            System.out.println("player hand: " + player_hand + "\nHand of the house: " + dealer_hand);
 
                             if (dealer_hand > 21) {
-                                System.out.println("House over 21, the players win!");
+                                System.out.println("\nHouse over 21, the players win!");
                                 break;
                             }
 
@@ -256,9 +257,9 @@ public class Blackjack {
                                     dealer_hand = dealer_hand - 10;
                                     da = 1;
                                 }
-                                System.out.println("\nyour hand is now: " + player_hand + "\n Hand of the house: " + dealer_hand);
+                                System.out.println("player hand: " + player_hand + "\nHand of the house: " + dealer_hand);
                                 if (dealer_hand > 21) {
-                                    System.out.println("House over 21, the players win!");
+                                    System.out.println("\nHouse over 21, the players win!");
                                     break;
                                 }
 
@@ -286,9 +287,9 @@ public class Blackjack {
                                         dealer_hand = dealer_hand - 10;
                                         da = 1;
                                     }
-                                    System.out.println("you hand is now: " + player_hand + " Hand of the house: " + dealer_hand);
+                                    System.out.println("player hand: " + player_hand + "\nHand of the house: " + dealer_hand);
                                     if (dealer_hand > 21) {
-                                        System.out.println("House over 21, the players win!");
+                                        System.out.println("\nHouse over 21, the players win!");
                                         break;
 
                                     }
