@@ -13,6 +13,7 @@ public class Mini_pc {
             int x = input.nextInt();
 
             if ( x == 1 ) {Terning.kast(); }
+            if ( x == 2 ) {RoShamBo.RockPaperScissors(); }
 
         }
         System.out.println("bye bye");
