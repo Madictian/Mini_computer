@@ -14,7 +14,7 @@ public class Mini_pc {
 
             if ( x == 1 ) {Terning.kast(); }
             if ( x == 2 ) {RoShamBo.RockPaperScissors(); }
-            if ( x == 3 ) {Gaettal.Gaettal(); }
+            if ( x == 3 ) {Gaetettal.Gaettal(); }
 
         }
         System.out.println("bye bye");
