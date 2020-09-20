@@ -1,4 +1,4 @@
-/*import java.util.Scanner;
+import java.util.Scanner;
 
 public class Mini_pc {
     public static void main(String[] args) {
@@ -15,10 +15,10 @@ public class Mini_pc {
             if ( x == 1 ) {Terning.kast(); }
             if ( x == 2 ) {RoShamBo.RockPaperScissors(); }
             if ( x == 3 ) {Gaetettal.Gaettal(); }
+            if ( x == 4 ) {Blackjack.gamble (); }
 
         }
         System.out.println("bye bye");
 
     }
 }
-*/

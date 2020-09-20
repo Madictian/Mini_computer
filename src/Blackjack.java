@@ -1,6 +1,6 @@
 import java.util.*;
 public class Blackjack {
-    public static void main(String[] args) {
+    public static void gamble() {
         //card value
         int player_hand = 0;
         int player_split_hand = 0;
@@ -75,29 +75,32 @@ public class Blackjack {
         System.out.println(a);
         System.out.println(b);
 
-        if(a != b) {
+            if(a != b) {
 
             player_hand = a + b;
             System.out.println("you have a hand of: " + player_hand);
-
-
-            if (a == b){
-                System.out.println("would you like to split?");
-                Scanner input = new Scanner(System.in);
-                String split = input.nextLine();
-                if (split.equals("yes"))
-                    b = rand.nextInt((13 - 1) + 1) + 1;
-                as = a;
-                bs = rand.nextInt((13 - 1) + 1) + 1;
-                cs = 0;
-                ds = 0;
-                es = 0;
-                player_hand = a + b;
-                System.out.println("you have a hand of: " + player_hand);
-                answered_2 = false;
-
+        }   if (a == b){
+            System.out.println("would you like to split?");
+            Scanner input = new Scanner(System.in);
+            String split = input.nextLine();
+            if (split.equals("yes"))
+                b = rand.nextInt((13 - 1) + 1) + 1;
+            if (b >= 10) {
+                b = 10;
             }
-
+            if (b == 1) {
+                b = 11;
+            }
+            as = a;
+            bs = rand.nextInt((13 - 1) + 1) + 1;
+            cs = 0;
+            ds = 0;
+            es = 0;
+            player_hand = a + b;
+            System.out.println(a);
+            System.out.println(b);
+            System.out.println("you have a hand of: " + player_hand);
+            answered_2 = false;
 
         }
         {
@@ -123,13 +126,20 @@ public class Blackjack {
             player_split_hand = as + bs;
             System.out.println("your split hand  is: " + player_split_hand);
         }
+        if (player_split_hand == 21) {
+            System.out.println("split hand Blackjack!");
+            answered_2 = true;
+        }
 
         // while loop der fungere som spillerens primære hånd
         while (answered == false) {
             System.out.println("\nwould you like another for your hand?");
             Scanner input_player = new Scanner(System.in);
             String answer = input_player.nextLine();
-
+            if ( a + b == 21) {
+                System.out.println("Blackjack you win");
+                break;
+            }
             if (answer.equals("yes") || answer.equals("hit me")) {
                 c = rand.nextInt((13 - 1) + 1) + 1;
                 if (c >= 10) {
@@ -156,6 +166,7 @@ public class Blackjack {
 
                 if (player_hand > 21) {
                     System.out.println("over 21, the house wins!");
+                    counter = true;
                     break;
                 }
 
@@ -192,6 +203,7 @@ public class Blackjack {
                     System.out.println("\nyour hand is now: " + player_hand + "\n Hand of the house: " + dealer_hand);
                     if (player_hand > 21) {
                         System.out.println("\nover 21, the house wins!");
+                        counter = true;
                         break;
                     }
                     System.out.println("\nwould you like another for your hand?");
@@ -228,9 +240,10 @@ public class Blackjack {
                             player_hand = player_hand - 10;
                             a = 1;
                         }
-                        System.out.println("you hand is now: " + player_hand + " Hand of the house: " + dealer_hand);
+                        System.out.println("you hand is now: " + player_hand + "\nHand of the house: " + dealer_hand);
                         if (player_hand > 21) {
                             System.out.println("over 21, the house wins!");
+                            counter = true;
                             break;
 
                         }
@@ -394,19 +407,23 @@ public class Blackjack {
         //while loo som fungere som husets hånd, huset er representeret consollen som altid prøver af overgå spilleren.
 
         while (counter == false) {
+            if (a + b == 21) {
+                System.out.println("blackjack! players win!");
+                break;
+            }
             if (player_hand > 21 && player_split_hand > 21) {
                 System.out.println("\nplayer is bust! House wins!");
                 break;
             }
             if (player_hand > dealer_hand || player_split_hand > dealer_hand) {
                 dc = rand.nextInt((13 - 1) + 1) + 1;
-                dealer_hand = dealer_hand + dc;
                 if (dc >= 10) {
                     dc = 10;
                 }
                 if (dc == 1) {
                     dc = 11;
                 }
+                dealer_hand = dealer_hand + dc;
                 System.out.println("\nnew  card is " + dc);
                 if (dealer_hand > 21 && dc == 11) {
                     dealer_hand = dealer_hand - 10;
@@ -496,24 +513,25 @@ public class Blackjack {
 
                         }
                     } else if (dealer_hand >= player_hand && dealer_hand >= player_split_hand) {
-                        counter = true;
-                        System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + " and " + player_split_hand + "\nHouse Wins!");
-                        } else if (dealer_hand >= player_hand);{
-                        counter = true;
+                        if (player_split_hand > 0)
+                            System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + " and " + player_split_hand + "\nHouse Wins!");
+                        else if (dealer_hand >= player_hand);{
                         System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + "\nHouse Wins!");
-                    }}else if (dealer_hand >= player_hand && dealer_hand >= player_split_hand) {
-                        counter = true;
-                        System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + " and " + player_split_hand + "\nHouse Wins!");
-                    } else if (dealer_hand >= player_hand); {
-                        counter = true;
-                        System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + "\nHouse Wins!");
+                        break;
+                    }
+                }else if (dealer_hand >= player_hand && dealer_hand >= player_split_hand) {
+                        if (player_split_hand > 0)
+                            System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + " and " + player_split_hand + "\nHouse Wins!");
+                        else if (dealer_hand >= player_hand);{
+                            System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + "\nHouse Wins!");
+                            break;
                     }
                 } else if (dealer_hand >= player_hand && dealer_hand >= player_split_hand) {
-            counter = true;
             System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + " and " + player_split_hand + "\nHouse Wins!");
+                break;
         } else if (dealer_hand >= player_hand); {
-            counter = true;
             System.out.println("\nHouse " + dealer_hand + " vs player " + player_hand + "\nHouse Wins!");
+                break;
         }
         }
-    }}
+    }}}}
