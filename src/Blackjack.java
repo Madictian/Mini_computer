@@ -1,10 +1,13 @@
 import java.util.*;
 public class Blackjack {
     public static void gamble() {
+
+
+
         // total card value
-        int player_hand = 0;
-        int player_split_hand = 0;
-        int dealer_hand = 0;
+            int player_hand = 0;
+            int player_split_hand = 0;
+            int dealer_hand = 0;
 
         // rand.nextInt((13 - 1) + 1) + 1; random genarator som giver et tal op til 13 som er det antal forskellige kort der bruges.
         Random rand = new Random();
@@ -81,10 +84,10 @@ public class Blackjack {
 
             if (a == b){
             System.out.println("would you like to split?");
-            Scanner input = new Scanner(System.in);
-            String split = input.nextLine();
-            if (split.equals("yes")){
-            b = rand.nextInt((13 - 1) + 1) + 1;
+            Scanner betting = new Scanner(System.in);
+            String split = betting.nextLine();
+                    b = rand.nextInt((13 - 1) + 1) + 1;
+
             if (b >= 10) {
                 b = 10;
             }
@@ -101,7 +104,7 @@ public class Blackjack {
             System.out.println(b);
             System.out.println("you have a hand of: " + player_hand);
             answered_2 = false;
-            }else if (split.equals("no")){
+            if (split.equals("no")){
             player_hand = a + b;
             System.out.println("you have a hand of: " + player_hand);
             }}
