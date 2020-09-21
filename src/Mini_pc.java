@@ -12,10 +12,11 @@ public class Mini_pc {
             Scanner input = new Scanner(System.in);
             int x = input.nextInt();
 
-            if ( x == 1 ) {Terning.kast(); }
-            if ( x == 2 ) {RoShamBo.RockPaperScissors(); }
-            if ( x == 3 ) {Gaetettal.Gaettal(); }
-            if ( x == 4 ) {Blackjack.gamble (); }
+            if ( x == 0 ) {Terning.kast();}
+            if ( x == 1 ) {RoShamBo.RockPaperScissors();}
+            if ( x == 3 ) {Gaetettal.Gaettal();}
+            if ( x == 4 ) {Blackjack.gamble();}
+            if ( x == 5 ) {TextAdventure.startEncounter();}
 
         }
         System.out.println("bye bye");
