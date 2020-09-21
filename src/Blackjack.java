@@ -1,12 +1,12 @@
 import java.util.*;
 public class Blackjack {
     public static void gamble() {
-        //card value
+        // total card value
         int player_hand = 0;
         int player_split_hand = 0;
         int dealer_hand = 0;
 
-        // rand.nextInt((13 - 1) + 1) + 1;
+        // rand.nextInt((13 - 1) + 1) + 1; random genarator som giver et tal op til 13 som er det antal forskellige kort der bruges.
         Random rand = new Random();
         int a = rand.nextInt((13 - 1) + 1) + 1;
         int b = rand.nextInt((13 - 1) + 1) + 1;
@@ -32,7 +32,6 @@ public class Blackjack {
         Boolean answered_2 = true;
         Boolean counter = false;
 
-        // her dannes en if statement for at sætte spiller hånden op til et split
 
 
 // Her defineres alle korts værdier i op til 5 korttræk for både spiller, spiller split og dealer.
@@ -76,15 +75,16 @@ public class Blackjack {
         System.out.println(b);
 
             if(a != b) {
+                player_hand = a + b;
+                System.out.println("you have a hand of: " + player_hand);
+            }
 
-            player_hand = a + b;
-            System.out.println("you have a hand of: " + player_hand);
-        }   if (a == b){
+            if (a == b){
             System.out.println("would you like to split?");
             Scanner input = new Scanner(System.in);
             String split = input.nextLine();
-            if (split.equals("yes"))
-                b = rand.nextInt((13 - 1) + 1) + 1;
+            if (split.equals("yes")){
+            b = rand.nextInt((13 - 1) + 1) + 1;
             if (b >= 10) {
                 b = 10;
             }
@@ -101,8 +101,11 @@ public class Blackjack {
             System.out.println(b);
             System.out.println("you have a hand of: " + player_hand);
             answered_2 = false;
+            }else if (split.equals("no")){
+            player_hand = a + b;
+            System.out.println("you have a hand of: " + player_hand);
+            }}
 
-        }
         {
             if (as == 1) {
                 as = 11;
@@ -133,13 +136,13 @@ public class Blackjack {
 
         // while loop der fungere som spillerens primære hånd
         while (answered == false) {
+            if ( a + b == 21) {
+                System.out.println("Blackjack you win");
+                break; }
             System.out.println("\nwould you like another for your hand?");
             Scanner input_player = new Scanner(System.in);
             String answer = input_player.nextLine();
-            if ( a + b == 21) {
-                System.out.println("Blackjack you win");
-                break;
-            }
+
             if (answer.equals("yes") || answer.equals("hit me")) {
                 c = rand.nextInt((13 - 1) + 1) + 1;
                 if (c >= 10) {
@@ -413,6 +416,10 @@ public class Blackjack {
             }
             if (player_hand > 21 && player_split_hand > 21) {
                 System.out.println("\nplayer is bust! House wins!");
+                break;
+            }
+            if (dealer_hand >= player_hand && c == 0){
+                System.out.println("wait, did you just lose on purpose?");
                 break;
             }
             if (player_hand > dealer_hand || player_split_hand > dealer_hand) {
