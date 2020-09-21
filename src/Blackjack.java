@@ -407,7 +407,7 @@ public class Blackjack {
             }
         }
 
-        //while loo som fungere som husets hånd, huset er representeret consollen som altid prøver af overgå spilleren.
+        //while loop som fungere som husets hånd, huset er representeret consollen som altid prøver af overgå spilleren.
 
         while (counter == false) {
             if (a + b == 21) {
