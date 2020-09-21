@@ -6,7 +6,7 @@ public class Gaetettal {
 
             //Random tal generator, og integer der holder øje med hvor mange forsøg der er brugt
             Random rand = new Random();
-            int randInt1 = rand.nextInt(100);
+            int randInt1 = rand.nextInt(101);
             int numberofTries = 0;
             boolean win = false;
 
