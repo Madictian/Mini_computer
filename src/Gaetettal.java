@@ -6,7 +6,7 @@ public class Gaetettal {
 
             //Random tal generator, og integer der holder øje med hvor mange forsøg der er brugt
             Random rand = new Random();
-            int randInt1 = rand.nextInt(100);
+            int randInt1 = rand.nextInt(101);
             int numberofTries = 0;
             boolean win = false;
 
@@ -22,14 +22,14 @@ public class Gaetettal {
                 if (randInt1 == guess) {
                     win = true;
                     System.out.println("You guessed correctly!!");
+                } else if (guess >= 101 || guess <= -1) {
+                        System.out.println("Keep your guesses within the boundaries of 0 - 100!");
                 } else if (guess < randInt1) {
                     System.out.println("You guessed wrong, your number was too low.");
                     System.out.println("Number of times you've guessed incorrectly: " + numberofTries);
-                } else if (guess > randInt1 && guess < 100) {
+                } else if (guess > randInt1) {
                     System.out.println("You guessed wrong, your number was too high!");
                     System.out.println("Number of times you've guessed incorrectly: " + numberofTries);
-                } else if (guess > 100) {
-                    System.out.println("Keep your guesses within the boundaries of 0 - 100!");
                 } if (numberofTries == 10) {
                     System.out.println("I feel bad, the random number is " + randInt1 + ".");
                 }
