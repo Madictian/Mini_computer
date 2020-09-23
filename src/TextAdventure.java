@@ -287,18 +287,19 @@ public class TextAdventure {
 
                 //-----------------------------------------------
                 switch (choice) {
-                    case "Walk":
+                    case "Walk" -> {
                         System.out.println("You walk forward");
                         actionsUntilEncounter -= 1;
-                        break;
-                    case "Turn Left":
+                    }
+                    case "Turn Left" -> {
                         System.out.println("You turn left");
                         actionsUntilEncounter -= 1;
-                        break;
-                    case "Turn Right":
+                    }
+                    case "Turn Right" -> {
                         System.out.println("You turn right");
                         actionsUntilEncounter -= 1;
-                        break;
+                    }
+                    default -> System.out.println("Invalid input!");
                 }//-----------------end switch------------------
 
                 // Start encounter
@@ -329,42 +330,39 @@ public class TextAdventure {
                                 triedToFlee = true;
                             }
                             break;
+                        default: System.out.println("Invalid input!");
                     }//---------------end switch------------------
 
                 } else if (encounterIndex == 2) {
 
                     //-----------------------------------------------
                     switch (choice) {
-                        case "Item 1":
-                            System.out.println(items[item1Index].name +
-                            "\nGives: " + items[item1Index].amount + " " + items[item1Index].attribute +
-                            "\nCosts: " + items[item1Index].cost +  " Gold");
-                            break;
-                        case "Item 2":
-                            System.out.println(items[item2Index].name +
-                                    "\nGives: " + items[item2Index].amount + " " + items[item2Index].attribute +
-                                    "\nCosts: " + items[item2Index].cost +  " Gold");
-                            break;
-                        case "Item 3":
-                            System.out.println(items[item3Index].name +
-                                    "\nGives: " + items[item3Index].amount + " " + items[item3Index].attribute +
-                                    "\nCosts: " + items[item3Index].cost +  " Gold");
-                            break;
-                        case "Buy":
+                        case "Item 1" -> System.out.println(items[item1Index].name +
+                                "\nGives: " + items[item1Index].amount + " " + items[item1Index].attribute +
+                                "\nCosts: " + items[item1Index].cost + " Gold");
+                        case "Item 2" -> System.out.println(items[item2Index].name +
+                                "\nGives: " + items[item2Index].amount + " " + items[item2Index].attribute +
+                                "\nCosts: " + items[item2Index].cost + " Gold");
+                        case "Item 3" -> System.out.println(items[item3Index].name +
+                                "\nGives: " + items[item3Index].amount + " " + items[item3Index].attribute +
+                                "\nCosts: " + items[item3Index].cost + " Gold");
+                        case "Buy" -> {
                             Scanner inputShop = new Scanner(System.in);
-                            System.out.println("What item would you like to buy?('1', '2' or '3'): ");
+                            System.out.print("What item would you like to buy?('1', '2' or '3'): ");
                             String itemChoice = inputShop.nextLine();
                             switch (itemChoice) {
                                 case "1" -> BuyItem(items[item1Index]);
                                 case "2" -> BuyItem(items[item2Index]);
                                 case "3" -> BuyItem(items[item3Index]);
+                                default -> System.out.println("Invalid input!");
                             }
                             inEncounter = false;
-                            break;
-                        case "Leave":
+                        }
+                        case "Leave" -> {
                             System.out.println("You leave the shop.");
                             inEncounter = false;
-                            break;
+                        }
+                        default -> System.out.println("Invalid input!");
                     }//---------------end switch------------------
 
                 }
@@ -531,15 +529,15 @@ public class TextAdventure {
             if (crit) {
 
                 damage *= critAmount;
-                System.out.println("The enemy critical strike you for: " + damage);
+                System.out.println("The enemy critical strike you for: " + (int)damage);
 
             } else if (!(hit) && !(dodge)) {
 
-                System.out.println("The enemy hit you for: " + damage);
+                System.out.println("The enemy hit you for: " + (int)damage);
 
             }
 
-            currentHP -= damage;
+            currentHP -= (int)damage;
             System.out.println("Your HP: " + currentHP);
 
         }
@@ -582,15 +580,15 @@ public class TextAdventure {
             if (crit) {
 
                 damage *= critAmount;
-                System.out.println("You critical strike the enemy for: " + damage);
+                System.out.println("You critical strike the enemy for: " + (int)damage);
 
             } else {
 
-                System.out.println("You hit the enemy for: " + damage);
+                System.out.println("You hit the enemy for: " + (int)damage);
 
             }
 
-            enmCurrentHP -= damage;
+            enmCurrentHP -= (int)damage;
             System.out.println("Enemy HP: " + enmCurrentHP);
 
         }
@@ -713,36 +711,36 @@ class Item {
         int attributeIndex = rand.nextInt((6 - 1) + 1) + 1;
 
         switch (attributeIndex) {
-            case 1:
+            case 1 -> {
                 attribute = "max HP";
                 amount = rand.nextInt((10 - 1) + 1) + 1;
-                cost = (int)amount;
-                break;
-            case 2:
+                cost = (int) amount;
+            }
+            case 2 -> {
                 attribute = "power";
                 amount = (((double) rand.nextInt((10 - 1) + 1) + 1) / 10);
-                cost = (int)(amount * 10) * 20;
-                break;
-            case 3:
+                cost = (int) (amount * 10) * 20;
+            }
+            case 3 -> {
                 attribute = "dodge chance";
                 amount = rand.nextInt((5 - 1) + 1) + 1;
-                cost = (int)amount * 10;
-                break;
-            case 4:
+                cost = (int) amount * 10;
+            }
+            case 4 -> {
                 attribute = "critical chance";
                 amount = rand.nextInt((5 - 1) + 1) + 1;
-                cost = (int)amount * 10;
-                break;
-            case 5:
+                cost = (int) amount * 10;
+            }
+            case 5 -> {
                 attribute = "hit chance";
                 amount = rand.nextInt((5 - 1) + 1) + 1;
-                cost = (int)amount * 3;
-                break;
-            case 6:
+                cost = (int) amount * 3;
+            }
+            case 6 -> {
                 attribute = "weapon damage";
                 amount = rand.nextInt((5 - 1) + 1) + 1;
-                cost = (int)amount * 15;
-                break;
+                cost = (int) amount * 15;
+            }
         }
 
     }
