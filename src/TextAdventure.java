@@ -336,17 +336,17 @@ public class TextAdventure {
                     switch (choice) {
                         case "Item 1":
                             System.out.println(items[item1Index].name +
-                            "\nGives: " + items[item1Index].amount + items[item1Index].attribute +
+                            "\nGives: " + items[item1Index].amount + " " + items[item1Index].attribute +
                             "\nCosts: " + items[item1Index].cost +  " Gold");
                             break;
                         case "Item 2":
                             System.out.println(items[item2Index].name +
-                                    "\nGives: " + items[item2Index].amount + items[item2Index].attribute +
+                                    "\nGives: " + items[item2Index].amount + " " + items[item2Index].attribute +
                                     "\nCosts: " + items[item2Index].cost +  " Gold");
                             break;
                         case "Item 3":
                             System.out.println(items[item3Index].name +
-                                    "\nGives: " + items[item3Index].amount + items[item3Index].attribute +
+                                    "\nGives: " + items[item3Index].amount + " " + items[item3Index].attribute +
                                     "\nCosts: " + items[item3Index].cost +  " Gold");
                             break;
                         case "Buy":
@@ -669,6 +669,7 @@ public class TextAdventure {
 
         } else if (encounterIndex == 2) {
 
+            System.out.println("You have entered a shop, write 'Help' for commands.");
             // Shop encounter
             item1Index = rand.nextInt(items.length);
             while (item2Index == 0 || item2Index == item1Index) {item2Index = rand.nextInt(items.length);}
