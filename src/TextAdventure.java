@@ -362,6 +362,7 @@ public class TextAdventure {
                             inEncounter = false;
                             break;
                         case "Leave":
+                            System.out.println("You leave the shop.");
                             inEncounter = false;
                             break;
                     }//---------------end switch------------------
@@ -381,8 +382,19 @@ public class TextAdventure {
 
         /* = rand.nextInt((max - min) + 1) + min*/
         // enemy stats
-        enmlvl = rand.nextInt(((lvl + 5) - (lvl - 5)) + 1) + (lvl - 5);
-        enmMaxHP = rand.nextInt((int) (((lvl * 2.5) - (lvl / 1.5)) + 1)) + (int) (lvl /1.5);
+        if (lvl > 5) {
+            enmlvl = rand.nextInt(((lvl + 5) - (lvl - 5)) + 1) + (lvl - 5);
+        } else {
+            enmlvl = rand.nextInt(((lvl + 5) - 1) + 1) + 1;
+        }
+        if (lvl >= 3) {
+            while (enmMaxHP > 5) {
+                enmMaxHP = rand.nextInt((int) (((lvl * 2.5) - (lvl / 1.5)) + 1)) + (int) (lvl / 1.5);
+            }
+        }
+        else {
+            enmMaxHP = rand.nextInt((5 - 3) + 1) + 3;
+        }
         enmCurrentHP = enmMaxHP;
 
         if (enmlvl >= 1 && enmlvl < 10) {
@@ -565,7 +577,7 @@ public class TextAdventure {
 
             System.out.println("The enemy dodged your attack");
 
-        } else {
+        } else if (!(hit) && !(dodge)) {
 
             if (crit) {
 
@@ -591,7 +603,7 @@ public class TextAdventure {
             enmPower = 0;
             inEncounter = false;
 
-        } else {
+        } else if (bossFight) {
 
             System.out.println("You defeated the boss and were reincarnated again when the boss reincarnated centuries after its death.");
             rebirth += 1;
