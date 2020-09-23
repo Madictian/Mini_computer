@@ -46,7 +46,7 @@ public class TextAdventure {
     static int enmDodge;
     static int enmCritChn;
     static int enmHitChn;
-    static int[] enmWeaponDMG;
+    static int[] enmWeaponDMG = {1, 2};
     static boolean bossFight = false;
     static String[] enemyNames = {
             "gargoyle",
@@ -232,7 +232,7 @@ public class TextAdventure {
 
         // this code names the character
         Scanner inputName = new Scanner(System.in);
-        System.out.println("Name your character: ");
+        System.out.print("Name your character: ");
         name = inputName.nextLine();
 
         System.out.println("Write 'Help!' for text codes.");
@@ -241,13 +241,14 @@ public class TextAdventure {
 
     }
 
-     public static void Adventure() {
+    // This holds everything adventure related
+    public static void Adventure() {
 
         // Runs the game/simulation
         while (gameStatus) {
 
             Scanner input = new Scanner(System.in);
-            System.out.println("What do you do?: ");
+            System.out.print("What do you do?: ");
             String choice = input.nextLine();
 
             if (choice.equals("End game")) {gameStatus = false;}
@@ -543,15 +544,15 @@ public class TextAdventure {
     // This method lets the player attack
     public static void Attack() {
 
-        double damage = rand.nextInt((int)(weaponDMG[1] + weaponDMG[0]) + 1) + weaponDMG[0];
+        double damage = rand.nextInt((int)(weaponDMG[1] - weaponDMG[0]) + 1) + weaponDMG[0];
         damage *= power;
 
         boolean hit = false;
-        if ((rand.nextInt((100 + 1) + 1) + 1) >= hitChn) {hit = true;}
+        if ((rand.nextInt((100 - 1) + 1) + 1) >= hitChn) {hit = true;}
         boolean dodge = false;
-        if ((rand.nextInt((100 + 1) + 1) + 1) <= enmDodge) {dodge = true;}
+        if ((rand.nextInt((100 - 1) + 1) + 1) <= enmDodge) {dodge = true;}
         boolean crit = false;
-        if ((rand.nextInt((100 + 1) + 1) + 1) <= critChn) {crit = true;}
+        if ((rand.nextInt((100 - 1) + 1) + 1) <= critChn) {crit = true;}
 
         // hit or miss
         if (hit) {
