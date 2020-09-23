@@ -302,7 +302,8 @@ public class TextAdventure {
                 }//-----------------end switch------------------
 
                 // Start encounter
-                if (actionsUntilEncounter == 0) {startEncounter();}
+                if (actionsUntilEncounter == 0) {
+                    StartEncounter();}
 
                 //--------------------------------End (if encounter = false)--------------------------------
             } else if (inEncounter) {
@@ -645,8 +646,8 @@ public class TextAdventure {
 
     }
 
-    // starts encounters
-    public static void startEncounter() {
+    // Starts encounters
+    public static void StartEncounter() {
 
         // Encounter set to active
         inEncounter = true;
