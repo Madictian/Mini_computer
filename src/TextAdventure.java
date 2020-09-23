@@ -220,13 +220,15 @@ public class TextAdventure {
     //</editor-fold>
 
     // Starts and controls the game
-    public static void StartAdventure() {
+    public void StartAdventure() {
 
         // true = active
         gameStatus = true;
 
         // creates the item-stats
-        for (Item num : items) {num.CreateItem();}
+        for (Item num : items) {
+            num.CreateItem();
+        }
 
         // this code names the character
         Scanner inputName = new Scanner(System.in);
@@ -234,6 +236,12 @@ public class TextAdventure {
         name = inputName.nextLine();
 
         System.out.println("Write 'Help!' for text codes.");
+
+        Adventure();
+
+    }
+
+     public static void Adventure() {
 
         // Runs the game/simulation
         while (gameStatus) {

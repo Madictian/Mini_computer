@@ -16,7 +16,7 @@ public class Mini_pc {
             if ( x == 1 ) {RoShamBo.RockPaperScissors();}
             if ( x == 3 ) {Gaetettal.Gaettal();}
             if ( x == 4 ) {Blackjack.gamble();}
-            if ( x == 5 ) {TextAdventure.startEncounter();}
+            if ( x == 5 ) {TextAdventure game = new TextAdventure(); game.StartAdventure();}
 
         }
         System.out.println("bye bye");
