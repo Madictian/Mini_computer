@@ -279,7 +279,7 @@ public class TextAdventure {
                         "\nHealth: " + maxHP + "/" + currentHP +
                         "\nPower: " + power +
                         "\nHit chance: " + hitChn + "%\n" +
-                        "Critical strike chance:" + critChn + "%\n" +
+                        "Critical strike chance: " + critChn + "%\n" +
                         "Dodge chance: " + dodgeChn + "%\n" +
                         "Gold: " + gold);
             }
@@ -716,7 +716,7 @@ class Item {
                 break;
             case 2:
                 attribute = "power";
-                amount = (rand.nextInt((10 - 1) + 1) + 1) / 10;
+                amount = (((double) rand.nextInt((10 - 1) + 1) + 1) / 10);
                 cost = (int)(amount * 10) * 20;
                 break;
             case 3:
