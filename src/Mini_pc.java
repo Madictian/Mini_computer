@@ -17,6 +17,7 @@ public class Mini_pc {
             if ( x == 3 ) {Gaetettal.Gaettal();}
             if ( x == 4 ) {Blackjack.gamble();}
             if ( x == 5 ) {TextAdventure.startEncounter();}
+            if ( x == 6) { Dagetiljul.Dagtiljul();}
 
         }
         System.out.println("bye bye");
