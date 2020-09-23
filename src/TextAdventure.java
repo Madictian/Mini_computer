@@ -601,6 +601,7 @@ public class TextAdventure {
             exp += enmlvl;
             gold += enmlvl;
             enmPower = 0;
+            currentHP = maxHP;
             inEncounter = false;
 
         } else if (bossFight) {
@@ -655,6 +656,9 @@ public class TextAdventure {
         hitChn = item.Buy(gold, maxHP, power, dodgeChn, critChn, hitChn, weaponDMG[0], weaponDMG[1])[5];
         weaponDMG[0] = item.Buy(gold, maxHP, power, dodgeChn, critChn, hitChn, weaponDMG[0], weaponDMG[1])[6];
         weaponDMG[1] = item.Buy(gold, maxHP, power, dodgeChn, critChn, hitChn, weaponDMG[0], weaponDMG[1])[7];
+
+        // If you buy a item that increases maxHP then this code sets your HP to the maxHP.
+        currentHP = maxHP;
 
     }
 
