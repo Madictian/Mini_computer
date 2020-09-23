@@ -506,7 +506,7 @@ public class TextAdventure {
     // This method lets the enemy take a turn
     public static void EnemyTurn() {
 
-        double damage = rand.nextInt((enmWeaponDMG[1] + enmWeaponDMG[0]) + 1) + enmWeaponDMG[0];
+        double damage = rand.nextInt((enmWeaponDMG[1] - enmWeaponDMG[0]) + 1) + enmWeaponDMG[0];
         damage *= power;
 
         boolean hit = false;
@@ -533,7 +533,7 @@ public class TextAdventure {
                 damage *= critAmount;
                 System.out.println("The enemy critical strike you for: " + damage);
 
-            } else {
+            } else if (!(hit) && !(dodge)) {
 
                 System.out.println("The enemy hit you for: " + damage);
 
